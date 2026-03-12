@@ -42,7 +42,7 @@ export function NewsVerificationForm() {
         headers["Authorization"] = `Bearer ${token}`
       }
 
-      const response = await fetch(`http://localhost:8000${url}`, {
+      const response = await fetch(`http://67.211.221.74:8000${url}`, {
         method: "POST",
         headers,
         body: JSON.stringify({ text, category }),

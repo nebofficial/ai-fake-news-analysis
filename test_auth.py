@@ -2,7 +2,7 @@ import requests
 import json
 import time
 
-BASE_URL = "http://localhost:8000/api/auth"
+BASE_URL = "http://67.211.221.74:8000/api/auth"
 
 def test_send_otp():
     print("Testing /send-otp...")

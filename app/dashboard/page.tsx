@@ -41,10 +41,10 @@ export default function DashboardPage() {
     const fetchDashboardData = async (token: string) => {
         try {
             const [historyRes, statsRes] = await Promise.all([
-                fetch("http://localhost:8000/api/history?limit=5", {
+                fetch("http://67.211.221.74:8000/api/history?limit=5", {
                     headers: { "Authorization": `Bearer ${token}` }
                 }),
-                fetch("http://localhost:8000/api/history/stats", {
+                fetch("http://67.211.221.74:8000/api/history/stats", {
                     headers: { "Authorization": `Bearer ${token}` }
                 })
             ])
