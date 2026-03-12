@@ -24,6 +24,18 @@ if [ "$EUID" -ne 0 ]; then
    exit 1
 fi
 
+# Load nvm and use Node 20+ (required by Next.js 16)
+export NVM_DIR="$HOME/.nvm"
+if [ -s "$NVM_DIR/nvm.sh" ]; then
+  . "$NVM_DIR/nvm.sh"
+  nvm use 20 2>/dev/null || nvm use default
+fi
+if ! command -v node &>/dev/null || [ "$(node -v | cut -d. -f1 | tr -d v)" -lt 20 ]; then
+  echo -e "${RED}❌ Node.js 20+ required. Install: nvm install 20 && nvm use 20${NC}"
+  exit 1
+fi
+echo -e "${YELLOW}Using Node $(node -v)${NC}"
+
 echo -e "${YELLOW}1. Going to app directory...${NC}"
 cd "$APP_DIR"
 
